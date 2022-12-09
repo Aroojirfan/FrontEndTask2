@@ -17,9 +17,14 @@ import { Search } from "./NavStyle";
 import { SearchIconWrapper } from "./NavStyle";
 import { StyledInputBase } from "./NavStyle";
 import { StyledTypography } from "./NavStyle";
+import Link from "@mui/material/Link";
+import Badge from "@mui/material/Badge";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useSelector } from "react-redux";
 const pages = ["Home", "Summary", "Blog"];
 
 function ResponsiveAppBar() {
+  const { data } = useSelector((state) => state.MyListAddedData);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const darkTheme = createTheme({
@@ -33,18 +38,9 @@ function ResponsiveAppBar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <AppBar position="sticky" theme={darkTheme}>
       <Container maxWidth="xl">
@@ -65,30 +61,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              data-testid="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <StyledTypography
@@ -97,27 +70,30 @@ function ResponsiveAppBar() {
             component="a"
             href=""
           ></StyledTypography>
+             
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
           </Box>
-
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          <AddShoppingCartIcon style={{paddingLeft:20}}/>
+          <Badge
+        badgeContent={data.length}
+        color="primary"
+        id="basic-button"
+        style={{marginTop:-20, }}
+      >
+        </Badge>
+        <StyledTypography
+              sx={{ mb: 2 , p:3, color: "white", display: "block" }}
+              variant="h6"
+              noWrap
+              component="a"
+              href="/MyList"
+             
+            >
+              MYList
+            </StyledTypography>
+         
+              
+        
         </Toolbar>
       </Container>
     </AppBar>

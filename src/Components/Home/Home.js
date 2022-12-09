@@ -1,4 +1,3 @@
-import Button from "@mui/material/Button";
 import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
 import { STATUSES } from "../../store/Reducer/taskData";
@@ -6,12 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchApiDataUsingAxios } from "../../store/Reducer/taskData";
 import ReactPaginate from "react-paginate";
 import "./Home.css";
-import {
-  Typography,
-  Container,
-  Grid,
-  CardActions,
-} from "@material-ui/core";
+import { Typography, Container, Grid, CardActions } from "@material-ui/core";
 import useStyles from "./styles";
 import DataListItem from "./DataListItem";
 

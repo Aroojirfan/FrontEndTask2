@@ -10,7 +10,7 @@ const DataListItem = ({ name }) => {
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
-          <NavLink style={{ textDecoration: 'none' }} to={`/Component/${name}`}>
+          <NavLink style={{ textDecoration: "none" }} to={`/Component/${name}`}>
             <Button size="medium" variant="contained" color="error">
               Check Detail
             </Button>
