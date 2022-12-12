@@ -84,9 +84,6 @@ function ResponsiveAppBar() {
             >
               MYList
             </StyledTypography>
-         
-              
-        
         </Toolbar>
       </Container>
     </AppBar>
