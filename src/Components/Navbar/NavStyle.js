@@ -1,7 +1,6 @@
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import { useSelector } from "react-redux";
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
